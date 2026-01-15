@@ -404,4 +404,13 @@ $(function(){
 			}
 		}
 	});
+
+	//input.checkbox替换为开关
+	$('input.checkbox').hide();
+	$('input.checkbox').after('<span class="imgcheck imgcheck-on"></span>');
+	$(document).on('click', 'span.imgcheck', function () {
+		$(this).toggleClass('imgcheck-on');
+		var isOn = $(this).hasClass('imgcheck-on');
+		$(this).prev('input.checkbox').val(isOn ? '1' : '0');
+	});
 });
